@@ -3,9 +3,7 @@
   "version": "0.0.4",
   "private": false,
   "author": "Prajwal A, Nandan Kumar and Santhosh K",
-  "bin": {
-    "create-react-ts-setup-app": "bin/install.mjs"
-  },
+  "bin": "./bin/cli/js",
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
     "@testing-library/jest-dom": "^5.17.0",
