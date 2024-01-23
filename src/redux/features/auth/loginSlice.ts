@@ -7,8 +7,8 @@ const loginApi: any = createAsyncThunk("employees", async data => {
   try {
     const info = await API.post(API_ENDPOINTS.AUTH_LOGIN, data);
     return info;
-  } catch (error) {
-    return error.response;
+  } catch (error:any) {
+    return error;
   }
 });
 //#endregion

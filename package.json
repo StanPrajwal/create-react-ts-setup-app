@@ -1,7 +1,11 @@
 {
-  "name": "create-react-ts-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "create-react-ts-setup-app",
+  "version": "0.0.1",
+  "private": false,
+  "author": "Prajwal A, Nandan Kumar and Santhosh K",
+  "bin": {
+    "create-react-ts-setup-app": "bin/install.mjs"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
     "@testing-library/jest-dom": "^5.17.0",
