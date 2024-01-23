@@ -3,7 +3,9 @@
   "version": "0.0.5",
   "private": false,
   "author": "Prajwal A, Nandan Kumar and Santhosh K",
-  "bin": "./bin/cli/js",
+  "bin":{
+    "create-react-ts-setup-app":"bin/install.js"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
     "@testing-library/jest-dom": "^5.17.0",
@@ -23,6 +25,10 @@
     "redux-thunk": "^3.1.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StanPrajwal/create-react-ts-setup-app.git"
   },
   "scripts": {
     "start": "react-scripts start",
