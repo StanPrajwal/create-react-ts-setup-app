@@ -25,24 +25,31 @@ const git_repo = "https://github.com/StanPrajwal/react-ts-scaffolding";
 
 // create project directory
 if (fs.existsSync(projectPath)) {
-  console.log(`The file ${projectName} already exist in the current directory, please give it another name.`);
+  console.log(
+    `The file ${projectName} already exist in the current directory, please give it another name.`
+  );
   process.exit(1);
-}
-else {
+} else {
   fs.mkdirSync(projectPath);
 }
 
 try {
   const gitSpinner = ora("Downloading files...").start();
   // clone the repo into the project folder -> creates the new boilerplate
-  await exec(`git clone --depth 1 ${git_repo} ${projectPath} --quiet`);
+  await exec('git', ['clone', '--depth', '1', git_repo, projectPath, '--quiet']);
   gitSpinner.succeed();
 
   const cleanSpinner = ora("Removing useless files").start();
   // remove my git history
-  const rmGit = rm(path.join(projectPath, ".git"), { recursive: true, force: true });
+  const rmGit = rm(path.join(projectPath, ".git"), {
+    recursive: true,
+    force: true,
+  });
   // remove the installation file
-  const rmBin = rm(path.join(projectPath, "bin"), { recursive: true, force: true });
+  const rmBin = rm(path.join(projectPath, "bin"), {
+    recursive: true,
+    force: true,
+  });
   await Promise.all([rmGit, rmBin]);
 
   process.chdir(projectPath);
@@ -58,7 +65,6 @@ try {
   console.log("You can now run your app with:");
   console.log(`    cd ${projectName}`);
   console.log(`    npm start`);
-
 } catch (error) {
   // clean up in case of error, so the user does not have to do it manually
   fs.rmSync(projectPath, { recursive: true, force: true });
