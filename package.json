@@ -1,6 +1,6 @@
 {
   "name": "create-react-ts-setup-app",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Scaffold a React + TypeScript app with Redux Toolkit, React Router and axios already set up.",
   "author": "Prajwal A, Nandan Kumar and Santhosh K",
   "bin": {
