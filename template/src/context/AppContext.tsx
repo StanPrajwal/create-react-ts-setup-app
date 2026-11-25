@@ -8,5 +8,5 @@ export const AppContext = React.createContext<{
   setUserInfo: React.Dispatch<React.SetStateAction<UserInfo>>;
 }>({
   userInfo: null,
-  setUserInfo: () => {}
+  setUserInfo: () => {},
 });

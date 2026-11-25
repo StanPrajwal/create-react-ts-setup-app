@@ -10,7 +10,7 @@ function App() {
       <AppContext.Provider
         value={{
           userInfo,
-          setUserInfo
+          setUserInfo,
         }}
       >
         <AppRoutes />

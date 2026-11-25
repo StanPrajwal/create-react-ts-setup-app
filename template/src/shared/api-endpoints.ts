@@ -6,7 +6,7 @@ export enum API_ENDPOINTS {
   AUTH_LOGIN = "/auth/login",
   ISDEFAULT_UPDATE = "/auth/isDefault-update",
   SWITCH_ROLES = "/auth/switch-roles",
-  EMP_ROLES = "/auth/get-Emp-Roles"
+  EMP_ROLES = "/auth/get-Emp-Roles",
 
   // Certification
 }

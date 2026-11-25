@@ -11,7 +11,7 @@ const renderAt = (path: string) =>
       <MemoryRouter initialEntries={[path]} future={routerFuture}>
         <App />
       </MemoryRouter>
-    </Provider>
+    </Provider>,
   );
 
 test("renders the home page", async () => {

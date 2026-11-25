@@ -2,19 +2,19 @@ import axios from "axios";
 import { environment } from "../environment/environment";
 
 const API = axios.create({
-  baseURL: environment.apiUrl
+  baseURL: environment.apiUrl,
 });
 
 // CHANGE THIS AS PER YOUR NEED
 API.interceptors.request.use(
-  config => {
+  (config) => {
     const token = sessionStorage.getItem("token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
-  error => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 export default API;

@@ -9,7 +9,7 @@ const routes: RouteObject[] = [
   // { path: "/login", element: <Login /> },
   { path: "/", element: <Home /> },
   { path: "errorPage403", element: <Error403 /> },
-  { path: "errorPage500", element: <Error500 /> }
+  { path: "errorPage500", element: <Error500 /> },
 ];
 
 const AppRoutes = () => {

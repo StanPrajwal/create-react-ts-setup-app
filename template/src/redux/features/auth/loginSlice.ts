@@ -21,7 +21,7 @@ interface LoginState {
 const initialState: LoginState = {
   user: null,
   loading: false,
-  error: ""
+  error: "",
 };
 
 //#region log in
@@ -32,11 +32,14 @@ export const loginApi = createAsyncThunk<
 >("auth/login", async (data, { rejectWithValue }) => {
   try {
     // Store only the response body: Axios responses are not serializable.
-    const response = await API.post<LoginResponse>(API_ENDPOINTS.AUTH_LOGIN, data);
+    const response = await API.post<LoginResponse>(
+      API_ENDPOINTS.AUTH_LOGIN,
+      data,
+    );
     return response.data;
   } catch (error) {
     const message = axios.isAxiosError(error)
-      ? error.response?.data?.message ?? error.message
+      ? (error.response?.data?.message ?? error.message)
       : "An error occurred";
     return rejectWithValue(String(message));
   }
@@ -47,11 +50,11 @@ const loginSlice = createSlice({
   name: "login",
   initialState,
   reducers: {
-    reset: () => initialState
+    reset: () => initialState,
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(loginApi.pending, state => {
+      .addCase(loginApi.pending, (state) => {
         state.loading = true;
         state.error = "";
       })
@@ -62,9 +65,10 @@ const loginSlice = createSlice({
       .addCase(loginApi.rejected, (state, action) => {
         state.user = null;
         state.loading = false;
-        state.error = action.payload ?? action.error.message ?? "An error occurred";
+        state.error =
+          action.payload ?? action.error.message ?? "An error occurred";
       });
-  }
+  },
 });
 
 export const { reset } = loginSlice.actions;

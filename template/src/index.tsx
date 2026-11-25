@@ -7,12 +7,12 @@ import store from "./redux/store";
 import { routerFuture } from "./routes/routerFuture";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement,
 );
 root.render(
   <Provider store={store}>
     <BrowserRouter future={routerFuture}>
       <App />
     </BrowserRouter>
-  </Provider>
+  </Provider>,
 );
