@@ -1,59 +1,33 @@
 {
   "name": "create-react-ts-setup-app",
-  "version": "0.0.5",
-  "private": false,
+  "version": "0.0.7",
+  "description": "Scaffold a React + TypeScript app with Redux Toolkit, React Router and axios already set up.",
   "author": "Prajwal A, Nandan Kumar and Santhosh K",
-  "bin":{
-    "create-react-ts-setup-app":"bin/install.js"
+  "bin": {
+    "create-react-ts-setup-app": "bin/install.js"
   },
-  "dependencies": {
-    "@reduxjs/toolkit": "^2.0.1",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.74",
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
-    "axios": "^1.6.5",
-    "lint": "^0.8.19",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-redux": "^9.1.0",
-    "react-router-dom": "^6.21.3",
-    "react-scripts": "5.0.1",
-    "redux-thunk": "^3.1.0",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+  "files": [
+    "bin",
+    "template"
+  ],
+  "engines": {
+    "node": ">=18"
   },
+  "keywords": [
+    "react",
+    "typescript",
+    "redux",
+    "create-react-app",
+    "template",
+    "scaffold",
+    "cli"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/StanPrajwal/create-react-ts-setup-app.git"
+    "url": "git+https://github.com/StanPrajwal/create-react-ts-setup-app.git"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\""
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "test": "node --test test/cli.test.js",
+    "test:e2e": "node test/e2e.js"
   }
 }

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./App.css";
-import { AppContext } from "./context/AppContext";
+import { AppContext, UserInfo } from "./context/AppContext";
 import AppRoutes from "./routes/AppRoutes";
 
 function App() {
-  const [userInfo, setUserInfo] = useState(null);
+  const [userInfo, setUserInfo] = useState<UserInfo>(null);
   return (
     <div className="App">
       <AppContext.Provider
