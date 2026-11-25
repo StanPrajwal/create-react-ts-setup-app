@@ -1,5 +1,5 @@
 "use strict";
-// Scaffold a real app, install it, and run its typecheck, tests and build.
+// Scaffold a real app, install it, then run its typecheck, tests, lint, format check, build and audit.
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
@@ -21,7 +21,9 @@ function step(label, cmd, args, dir, env) {
 
 step("scaffold", process.execPath, [path.join(__dirname, "..", "bin", "install.js"), "e2e-app"], cwd);
 step("typecheck", "npm", ["run", "typecheck"], app);
-step("test", "npm", ["test", "--", "--watchAll=false"], app, { CI: "true" });
-step("lint", "npx", ["eslint", "--max-warnings=0", "src"], app);
-step("build", "npm", ["run", "build"], app, { CI: "true" });
+step("test", "npm", ["test"], app);
+step("lint", "npm", ["run", "lint", "--", "--max-warnings=0"], app);
+step("format check", "npx", ["prettier", "--check", "src"], app);
+step("build", "npm", ["run", "build"], app);
+step("audit", "npm", ["audit"], app);
 console.log(`\nAll e2e steps passed. App at ${app}`);

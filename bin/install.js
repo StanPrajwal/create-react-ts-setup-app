@@ -42,7 +42,7 @@ function copyTemplate(dest) {
     recursive: true,
     filter: (src) => {
       const rel = path.relative(TEMPLATE_DIR, src).split(path.sep)[0];
-      return rel !== "node_modules" && rel !== "build" && rel !== "package-lock.json";
+      return rel !== "node_modules" && rel !== "dist" && rel !== "package-lock.json";
     },
   });
   for (const [from, to] of Object.entries(RENAMES)) {
@@ -92,6 +92,14 @@ function main() {
   if (fs.existsSync(dest)) {
     console.error(`The folder "${opts.name}" already exists. Choose another name or remove it.`);
     return 1;
+  }
+
+  const [major, minor] = process.versions.node.split(".").map(Number);
+  if (major < 22 || (major === 22 && minor < 12) || major === 23 || major === 25) {
+    console.warn(
+      `Warning: Node ${process.versions.node} detected. The generated app (Vite 8, Vitest 5) ` +
+        "needs Node 22.12+, 24 or 26+. Install a supported version before running it.\n"
+    );
   }
 
   console.log(`Creating a new React + TypeScript app in ${dest}...`);

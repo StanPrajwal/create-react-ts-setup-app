@@ -17,7 +17,7 @@
     "react",
     "typescript",
     "redux",
-    "create-react-app",
+    "vite",
     "template",
     "scaffold",
     "cli"

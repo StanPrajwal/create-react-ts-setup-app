@@ -64,7 +64,7 @@ test("scaffolds a clean app", () => {
   assert.strictEqual(pkg.private, true);
   assert.strictEqual(pkg.bin, undefined);
 
-  for (const f of [".gitignore", ".env.example", "tsconfig.json", "src/index.tsx", "public/index.html"]) {
+  for (const f of [".gitignore", ".env.example", "tsconfig.json", "src/main.tsx", "index.html", "vite.config.ts"]) {
     assert.ok(fs.existsSync(path.join(app, f)), `missing ${f}`);
   }
   for (const f of ["gitignore", ".git", "bin", "node_modules"]) {

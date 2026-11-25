@@ -1,5 +1,5 @@
-// Set REACT_APP_API_URL in a .env file (see .env.example) or in your shell.
-// Create React App reads .env, .env.development and .env.production automatically.
+// Set VITE_API_URL in a .env file (see .env.example) or in your shell.
+// Vite reads .env, .env.development and .env.production automatically.
 export const environment = {
-  apiUrl: process.env.REACT_APP_API_URL || "http://localhost:8080/api",
+  apiUrl: import.meta.env.VITE_API_URL || "http://localhost:8080/api",
 };

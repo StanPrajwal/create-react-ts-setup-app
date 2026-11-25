@@ -1,4 +1,4 @@
-import { RouteObject, useRoutes } from "react-router-dom";
+import { type RouteObject, useRoutes } from "react-router";
 import { lazy, Suspense } from "react";
 
 const Home = lazy(() => import("../components/home/Home"));
